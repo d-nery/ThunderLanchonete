@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="barcodeScan()">
+        <ion-icon name="barcode"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Editar Produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <form [formGroup]="productForm">
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input formControlName="name" type="text" maxlength="15" [class.invalid]="!productForm.controls.name.valid && (productForm.controls.name.dirty || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!productForm.controls.name.valid && (productForm.controls.name.dirty || submitAttempt)">
+        <p>Entre um nome válido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Preço</ion-label>
+        <ion-input formControlName="price" type="number" [class.invalid]="!productForm.controls.price.valid && (productForm.controls.price.dirty || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!productForm.controls.price.valid && (productForm.controls.price.dirty || submitAttempt)">
+        <p>Entre um preço válido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Barcode</ion-label>
+        <ion-input formControlName="barcode" type="number" [class.invalid]="!productForm.controls.barcode.valid && (productForm.controls.barcode.dirty || submitAttempt)"></ion-input>
+
+      </ion-item>
+      <ion-item *ngIf="!productForm.controls.barcode.valid && (productForm.controls.barcode.dirty || submitAttempt)">
+        <p>Entre um código de barras válido</p>
+      </ion-item>
+    </form>
+    <ion-item>
+      <ion-label fixed>Disponível</ion-label>
+      <ion-toggle [(ngModel)]="available"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block (click)="save()">Salvar</button>
+
+</ion-content>

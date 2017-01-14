@@ -25,17 +25,21 @@
   </ion-toolbar>
 
   <ion-list>
-    <ion-list-header>Produtos</ion-list-header>
+    <!--<ion-list-header>Produtos</ion-list-header>-->
 
     <ion-item-sliding *ngFor="let p of productsRef | async">
       <ion-item>
         <ion-avatar item-left><img [src]="p.image"></ion-avatar>
-        <h1>{{ p.name }}</h1>
-        <p>{{ p.barcode }}</p>
-        <ion-note item-right class="price">{{ p.price }} TB</ion-note>
+        <h1 [class.unavailable]="!p.available">{{ p.name }}</h1>
+        <p [class.unavailable]="!p.available">{{ p.barcode }}</p>
+        <ion-note item-right class="price" [class.unavailable]="!p.available">{{ p.price }} TB</ion-note>
         <!--{{ p | json }}-->
       </ion-item>
       <ion-item-options side="right">
+        <button ion-button color="primary" (click)="edit(p.$key)">
+          <ion-icon name="create"></ion-icon>
+          Editar
+        </button>
         <button ion-button color="danger" (click)="delete(p.$key)">
           <ion-icon name="trash"></ion-icon>
           Apagar

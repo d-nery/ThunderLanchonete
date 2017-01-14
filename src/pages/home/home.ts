@@ -1,9 +1,10 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, ModalController, AlertController } from 'ionic-angular';
 import { BarcodeScanner } from 'ionic-native';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { AddProductPage } from '../add-product/add-product';
+import { EditProductPage } from '../edit-product/edit-product';
 
 @Component({
   selector: 'page-home',
@@ -35,6 +36,11 @@ export class HomePage {
   addNew(): void {
     let newItemsModal = this.modalCtrl.create(AddProductPage, { products: this.productsRef });
     newItemsModal.present();
+  }
+
+  edit(key: string): void {
+    let editItemModal = this.modalCtrl.create(EditProductPage, { key: key });
+    editItemModal.present();
   }
 
   delete(key: string): void {

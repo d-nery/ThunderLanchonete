@@ -4,6 +4,7 @@ import { AngularFireModule } from 'angularfire2';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddProductPage } from '../pages/add-product/add-product';
+import { EditProductPage } from '../pages/edit-product/edit-product';
 
 export const fbConf = {
   apiKey: "AIzaSyDovbGrxXPrFgkuSh0A_0Fv_hBHGtwrQSc",
@@ -17,7 +18,8 @@ export const fbConf = {
   declarations: [
     MyApp,
     HomePage,
-    AddProductPage
+    AddProductPage,
+    EditProductPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -27,7 +29,8 @@ export const fbConf = {
   entryComponents: [
     MyApp,
     HomePage,
-    AddProductPage
+    AddProductPage,
+    EditProductPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
