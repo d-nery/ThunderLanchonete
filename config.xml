@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="org.thunderatz.thunderlanchonete" version="1.1.0-beta" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.thunderatz.thunderlanchonete" version="1.1.0-beta2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>ThunderLanchonete</name>
   <description>App para ver o que tem na TL.</description>
   <author email="contato@thunderatz.org" href="http://thunderatz.org/">Equipe ThundeRatz de Robotica</author>
