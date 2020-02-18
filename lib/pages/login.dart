@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -14,6 +14,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String anim = "Aparecer";
+
   @override
   Widget build(BuildContext context) {
     final appSize = MediaQuery.of(context).size;
@@ -29,8 +31,20 @@ class _LoginPageState extends State<LoginPage> {
               right: 0,
               child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child: Image(
-                  image: AssetImage("assets/ThunderLanchonete.png"),
+                child: Container(
+                  width: appSize.width,
+                  height: appSize.width,
+                  child: new FlareActor(
+                    "assets/TL.flr",
+                    animation: anim,
+                    alignment: Alignment.center,
+                    fit: BoxFit.contain,
+                    callback: (s) {
+                      setState(() {
+                        anim = "Continuo";
+                      });
+                    },
+                  ),
                 ),
               ),
             ),
