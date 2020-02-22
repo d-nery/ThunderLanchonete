@@ -1,19 +1,20 @@
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:thunderlanchonete/state_widget.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 
-import '../sign_in.dart';
-import '../colors.dart';
-import 'content.dart';
+// import 'package:thunderlanchonete/sign_in.dart';
+import 'package:thunderlanchonete/colors.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   String anim = "Aparecer";
 
   @override
@@ -97,24 +98,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget _signInButton() {
     return MaterialButton(
       splashColor: Colors.grey,
-      onPressed: () {
-        signInWithGoogle().then((v) {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => Content(),
-            ),
-          );
-        }, onError: (err) {
-          Fluttertoast.showToast(
-            msg: "Falha no login!",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIos: 2,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0,
-          );
-        });
+      onPressed: () async {
+        StateWidget.of(context).signInWithGoogle();
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,
