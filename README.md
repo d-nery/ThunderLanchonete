@@ -1,6 +1,6 @@
-<div style="text-align: center">
-<img src="assets/ThunderLanchonete512.png" />
-</div>
+<p align="center">
+  <img width=300 src="assets/ThunderLanchonete512.png">
+</p>
 
 # ThunderLanchonete
 
@@ -10,4 +10,6 @@ In this app you can check your TB (fictional currency) balance, add more and als
 
 # Screenshots
 
-<!-- Adicionar uns prints aqui -->
+<p align="center">
+  <img width=300 src="docs/login.jpeg">
+</p>
