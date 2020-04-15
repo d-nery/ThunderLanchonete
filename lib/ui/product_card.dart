@@ -26,7 +26,6 @@ class ProductCard extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            // Empty space:
             SizedBox(height: 10.0),
             Row(
               children: [
@@ -54,7 +53,7 @@ class ProductCard extends StatelessWidget {
       );
     }
 
-    Future<Widget> _getImage(BuildContext context, String img) async {
+    Future<Widget> _getImage(String img) async {
       String url = await FirebaseStorage.instance
           .ref()
           .child("products/$img.jpg")
@@ -67,7 +66,7 @@ class ProductCard extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: () => print("Tapped!"),
+      onTap: () => print("Tapped! ${product.name}"),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
         child: Card(
@@ -78,7 +77,7 @@ class ProductCard extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 4.0 / 3.0,
                 child: FutureBuilder(
-                    future: _getImage(context, product.imageKey),
+                    future: _getImage(product.imageKey),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
                         return snapshot.data;
